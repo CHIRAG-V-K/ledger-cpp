@@ -11,7 +11,7 @@ description = "Library code must not print. Return a value and let the caller de
 severity    = "medium"
 check       = "forbid_import"
 target      = "iostream"
-paths       = ["src/account.*", "src/posting.*"]
+paths       = ["src/account", "src/posting"]
 
 [[rule]]
 id          = "no-printf"
@@ -19,18 +19,17 @@ description = "Use the stream API, not C stdio, so output is type-checked at com
 severity    = "low"
 check       = "forbid_call"
 target      = "printf"
-paths       = ["src/**"]
+paths       = ["src/"]
 
 [[rule]]
 id          = "no-hardcoded-keys"
 description = "Credentials come from the environment, never from the tree."
 severity    = "high"
 check       = "hardcoded_secret"
-paths       = ["**"]
 
 [[rule]]
 id          = "money-is-integer-cents"
 description = "Monetary amounts are integer cents. A float balance is a rounding bug waiting to be found by an auditor."
 severity    = "high"
 check       = "model_judged"
-paths       = ["src/**"]
+paths       = ["src/"]
