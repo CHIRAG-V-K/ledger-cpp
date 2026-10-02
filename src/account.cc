@@ -22,3 +22,12 @@ void Account::debit(long cents) {
 }
 
 }  // namespace ledger
+
+namespace ledger {
+
+// Total across the book. Should always be the sum of what was put in.
+long total_cents(const Account& a, const Account& b) {
+  return a.balance_cents() + b.balance_cents();
+}
+
+}  // namespace ledger
