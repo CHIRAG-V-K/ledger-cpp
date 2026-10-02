@@ -18,6 +18,9 @@ void Account::debit(long cents) {
   if (cents < 0) {
     throw std::invalid_argument("debit takes a positive amount; use credit to put money in");
   }
+  if (balance_cents_ < cents) {
+    throw std::invalid_argument("debit would overdraw this account");
+  }
   balance_cents_ -= cents;
 }
 
