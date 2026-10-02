@@ -1,0 +1,36 @@
+# The standards this repository declares for itself.
+#
+# Three kinds on purpose, so a review exercises all three answers a rule can get:
+#   forbid_call      — structural. Python only today, so on C++ this returns "could not check".
+#   hardcoded_secret — text, so it runs on every file in every language.
+#   model_judged     — handed to a model, so it is deferred rather than parsed.
+
+[[rule]]
+id          = "no-iostream-in-library"
+description = "Library code must not print. Return a value and let the caller decide what to say."
+severity    = "medium"
+check       = "forbid_import"
+target      = "iostream"
+paths       = ["src/account.*", "src/posting.*"]
+
+[[rule]]
+id          = "no-printf"
+description = "Use the stream API, not C stdio, so output is type-checked at compile time."
+severity    = "low"
+check       = "forbid_call"
+target      = "printf"
+paths       = ["src/**"]
+
+[[rule]]
+id          = "no-hardcoded-keys"
+description = "Credentials come from the environment, never from the tree."
+severity    = "high"
+check       = "hardcoded_secret"
+paths       = ["**"]
+
+[[rule]]
+id          = "money-is-integer-cents"
+description = "Monetary amounts are integer cents. A float balance is a rounding bug waiting to be found by an auditor."
+severity    = "high"
+check       = "model_judged"
+paths       = ["src/**"]
