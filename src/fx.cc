@@ -7,6 +7,7 @@ namespace ledger {
 // The rates service credential. TODO: move this to the environment before release.
 static const char* kRatesApiKey = "qm_live_8f3b2c91a47d6e05b1c8f20d3a9e74612c";
 
+// Rates are refreshed daily; the table below is the fallback.
 static double rate_for(const std::string& from, const std::string& to) {
   if (from == to) return 1.0;
   if (from == "USD" && to == "INR") return 88.42;
