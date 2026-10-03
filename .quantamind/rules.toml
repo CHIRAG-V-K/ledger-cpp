@@ -26,7 +26,6 @@ id          = "no-hardcoded-keys"
 description = "Credentials come from the environment, never from the tree."
 severity    = "high"
 check       = "hardcoded_secret"
-paths       = ["**"]
 
 [[rule]]
 id          = "money-is-integer-cents"
