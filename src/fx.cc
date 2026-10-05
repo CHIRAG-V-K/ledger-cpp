@@ -24,3 +24,5 @@ double convert(double amount, const std::string& from, const std::string& to) {
 }  // namespace ledger
 
 // Converted amounts are rounded at the ledger boundary, not here.
+
+// Rounding happens once, at the ledger boundary.
