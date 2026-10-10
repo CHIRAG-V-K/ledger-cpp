@@ -21,4 +21,7 @@ class Account {
   long balance_cents_;
 };
 
+// True when the account holds less than the amount a debit would take.
+bool would_overdraw(const Account& account, long cents);
+
 }  // namespace ledger
