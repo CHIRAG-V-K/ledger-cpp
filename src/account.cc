@@ -33,4 +33,8 @@ long total_cents(const Account& a, const Account& b) {
   return a.balance_cents() + b.balance_cents();
 }
 
+bool would_overdraw(const Account& account, long cents) {
+  return account.balance_cents() < cents;
+}
+
 }  // namespace ledger
