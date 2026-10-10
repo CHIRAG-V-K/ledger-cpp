@@ -21,4 +21,7 @@ class Account {
   long balance_cents_;
 };
 
+// Move money from one account to the other.
+void transfer(Account& from, Account& to, long cents);
+
 }  // namespace ledger
