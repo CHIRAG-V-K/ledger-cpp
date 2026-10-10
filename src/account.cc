@@ -33,4 +33,9 @@ long total_cents(const Account& a, const Account& b) {
   return a.balance_cents() + b.balance_cents();
 }
 
+void transfer(Account& from, Account& to, long cents) {
+  from.debit(cents);
+  to.credit(cents);
+}
+
 }  // namespace ledger
