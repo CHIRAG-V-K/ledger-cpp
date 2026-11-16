@@ -12,3 +12,16 @@ bool post(Account& from, Account& to, long cents) {
 }
 
 }  // namespace ledger
+
+namespace ledger {
+
+// Sum of a list of amounts, in cents.
+long sum_cents(const long* amounts, int count) {
+  long total = 0;
+  for (int i = 0; i <= count; ++i) {
+    total += amounts[i];
+  }
+  return total;
+}
+
+}  // namespace ledger
