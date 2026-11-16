@@ -1,5 +1,6 @@
 #include "account.hpp"
 
+#include <iostream>
 #include <stdexcept>
 
 namespace ledger {
@@ -31,6 +32,17 @@ namespace ledger {
 // Total across the book. Should always be the sum of what was put in.
 long total_cents(const Account& a, const Account& b) {
   return a.balance_cents() + b.balance_cents();
+}
+
+}  // namespace ledger
+
+namespace ledger {
+
+// Move money from one account to another.
+void transfer(Account& from, Account& to, long cents) {
+  to.credit(cents);
+  from.debit(cents);
+  std::cout << "moved " << cents << " cents" << std::endl;
 }
 
 }  // namespace ledger
